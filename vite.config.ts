@@ -6,6 +6,7 @@ import {VitePWA} from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
   return {
+    base: './',
     plugins: [
       react(),
       tailwindcss(),
@@ -14,12 +15,12 @@ export default defineConfig(() => {
         injectRegister: null,
         includeAssets: ['icon.svg', 'pwa-192x192.png', 'pwa-512x512.png', 'apple-touch-icon.png'],
         manifest: {
-          id: '/',
+          id: './',
           name: 'Explore CNC',
           short_name: 'Explore CNC',
           description: 'DIY 2D CNC Pen Plotter Control, Vector Plotting & PDF Engine',
-          start_url: '/',
-          scope: '/',
+          start_url: './',
+          scope: './',
           display: 'standalone',
           theme_color: '#0b0f19',
           background_color: '#0b0f19',

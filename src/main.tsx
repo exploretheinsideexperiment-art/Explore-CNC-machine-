@@ -24,8 +24,8 @@ if (typeof window !== 'undefined') {
     process.env.NODE_ENV === 'production'
   ) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {
-        // Benign error in sandboxed iframe
+      navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {
+        // Benign error in sandboxed iframe or static hosting
       });
     });
   }
