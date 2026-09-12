@@ -1,0 +1,6 @@
+{
+  "name": "Explore the CNC",
+  "description": "A complete DIY 2D CNC Pen Plotter system featuring ESP32 firmware, real-time control, vector text plotting, PDF processing, and PWA dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
