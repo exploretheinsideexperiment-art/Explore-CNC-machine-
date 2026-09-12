@@ -1,13 +1,13 @@
 // Explore CNC Plotter - PWA Service Worker
-const CACHE_NAME = 'explore-cnc-v2';
+const CACHE_NAME = 'explore-cnc-v1';
 const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
-  './manifest.json',
-  './icon.svg',
-  './pwa-192x192.png',
-  './pwa-512x512.png',
-  './apple-touch-icon.png'
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/icon.svg',
+  '/pwa-192x192.png',
+  '/pwa-512x512.png',
+  '/apple-touch-icon.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -51,7 +51,7 @@ self.addEventListener('fetch', (event) => {
       }
       return fetch(event.request).catch(() => {
         if (event.request.mode === 'navigate') {
-          return caches.match('./index.html') || caches.match('./');
+          return caches.match('/index.html');
         }
       });
     })

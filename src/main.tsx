@@ -17,16 +17,22 @@ if (typeof window !== 'undefined') {
     }
   });
 
-  // Safe service worker registration in production only
+  // Safe service worker registration for PWA installability
   if (
     'serviceWorker' in navigator &&
-    window.location.protocol === 'https:' &&
-    process.env.NODE_ENV === 'production'
+    (window.location.protocol === 'https:' || window.location.hostname === 'localhost')
   ) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {
-        // Benign error in sandboxed iframe or static hosting
-      });
+      const swUrl = './service-worker.js';
+      navigator.serviceWorker
+        .register(swUrl, { scope: './' })
+        .then((reg) => {
+          console.log('PWA ServiceWorker registered successfully, scope:', reg.scope);
+        })
+        .catch((err) => {
+          // Fallback to sw.js if service-worker.js had any issue
+          navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {});
+        });
     });
   }
 }

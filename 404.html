@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore CNC</title>
+    <script>
+      // Single Page Application Router & GitHub Pages 404 handler
+      (function() {
+        var host = window.location.hostname;
+        var path = window.location.pathname;
+        if (host.endsWith('github.io')) {
+          var repoMatch = path.match(/^\/[^\/]+/);
+          var repo = repoMatch ? repoMatch[0] : '';
+          window.location.replace(repo + '/docs/' + window.location.search + window.location.hash);
+        } else {
+          window.location.replace('/' + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
+  </head>
+  <body style="background:#0b0f19; color:#94a3b8; font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0;">
+    <p>Loading Explore CNC...</p>
+  </body>
+</html>

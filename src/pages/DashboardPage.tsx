@@ -8,7 +8,7 @@ import { SafetyModal } from '../components/SafetyModal';
 import { textToVectorStrokes } from '../fonts/strokeFont';
 import { strokesToGCode } from '../gcode/generator';
 import { cncService } from '../cnc/connection';
-import { Play, Sparkles, Sliders, Cpu, FileCode } from 'lucide-react';
+import { Play, Sparkles, Sliders, Cpu, FileCode, Download, Smartphone } from 'lucide-react';
 
 interface DashboardPageProps {
   telemetry: MachineTelemetry;
@@ -157,6 +157,39 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ telemetry, onNavig
             disabled={telemetry.state === 'RUNNING'}
           />
         </div>
+      </div>
+
+      {/* PWA Quick Install Callout Banner */}
+      <div className="rounded-2xl p-4 bg-gradient-to-r from-cyan-950/40 via-slate-900 to-blue-950/40 border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 flex-shrink-0">
+            <Download className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-white flex items-center gap-2">
+              <span>Install Explore CNC as Phone App</span>
+              <span className="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                PWA / Offline
+              </span>
+            </h4>
+            <p className="text-xs text-slate-300 mt-0.5">
+              Install on Android, iOS, or PC for full-screen native plotter control without browser bars.
+            </p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            const btn = document.getElementById('btn-install-pwa-header');
+            if (btn) {
+              btn.click();
+            }
+          }}
+          className="flex-shrink-0 flex items-center justify-center gap-2 px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold rounded-xl transition shadow-md"
+        >
+          <Smartphone className="w-4 h-4" />
+          <span>Install PWA / App</span>
+        </button>
       </div>
 
       {/* Quick Launch Cards */}
