@@ -32,7 +32,9 @@
       window.global = window.global || window;
       window.process = window.process || { env: { NODE_ENV: 'development' }, versions: {} };
     </script>
-  </head>
+    <script type="module" crossorigin src="./assets/index-D4IZknjs.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BPSRZbX4.css">
+  <link rel="manifest" href="./manifest.webmanifest"></head>
   <body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
     <div id="root"></div>
     <script>
@@ -42,7 +44,6 @@
         window.location.replace(cleanPath + '/docs/' + window.location.search + window.location.hash);
       }
     </script>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
 
